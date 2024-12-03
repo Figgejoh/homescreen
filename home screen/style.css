@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #41374f98;
+}
+
+.container {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  background: url("/images/pexels-tirachard-kumtanom-112571-733857.jpg") center
+    no-repeat;
+  background-size: cover;
+  flex-wrap: wrap;
+}
+
+.section {
+  display: flex;
+  flex: 1;
+}
+
+.section.left-section {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 2;
+  gap: 5px;
+}
+
+.card-container {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  gap: 10px;
+  padding: 100px;
+  overflow: hidden;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  box-shadow: 4px 5px 10px #000;
+  transition: backdrop-filter 0.3s ease, transform 0.3s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  backdrop-filter: blur(10px);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.card-content a {
+  font-size: 40px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  padding-left: 50px;
+}
+
+.card-content a:hover {
+  text-decoration: underline;
+}
+
+.img-frame {
+  width: 125px;
+  height: 125px;
+  border-radius: 15px;
+}
+
+.img-frame.img-1 {
+  background: url("/images/channels4_profile.jpg") center;
+  background-size: contain;
+}
+
+.img-frame.img-2 {
+  background: url("/images/udemy-logo\ \(1\).png") center;
+  background-size: contain;
+}
+
+.img-frame.img-3 {
+  background: url("/images/W3Schools_logo.svg.png") center;
+  background-size: cover;
+}
+
+.img-frame.img-4 {
+  background: url("/images/5f9c9cfc740569d1a4ca3543.jpg") center;
+  background-size: cover;
+}
+
+.img-frame.img-5 {
+  background: url("/images/images.jpg") center;
+  background-size: contain;
+}
+
+.img-frame.img-6 {
+  background: url("/images/csstricks.png") center;
+  background-size: contain;
+}
+
+.img-frame.img-7 {
+  background: url("/images/7565578.png") center;
+  background-size: contain;
+}
+
+.img-frame.img-8 {
+  background: url("/images/Stack_Overflow.webp") center;
+  background-size: contain;
+}
+
+.middle-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.middle-section h1 {
+  display: flex;
+  font-size: 70px;
+  margin-top: 25px;
+  font-family: "Parkinsans", sans-serif;
+  letter-spacing: 2px;
+}
+
+.middle-section .digi-clock {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 100px 0;
+}
+
+.todo-container {
+  width: 500px;
+  min-height: 20vh;
+  margin-top: 50px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.todo-app h2 {
+  color: #000;
+  font-size: 34px;
+  display: flex;
+  justify-self: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  padding-left: 20px;
+  background-color: #77777798;
+  margin-bottom: 30px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 20px;
+}
+
+input::placeholder {
+  color: #333333a6;
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+button:active {
+  transform: scale(1.1);
+  background-color: var(--primary-color);
+}
+
+.todo-app ul li {
+  list-style-type: none;
+  font-size: 24px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 2px solid #666;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.todo-app ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 12px;
+}
+
+.todo-app ul li.checked {
+  color: #000;
+  text-decoration: line-through;
+}
+
+.todo-app ul li.checked::before {
+  background: var(--primary-color);
+}
+
+.todo-app ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  font-size: 32px;
+  color: #000;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.todo-app ul li span:hover {
+  color: var(--primary-color);
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  position: relative;
+}
+
+.search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background: none;
+}
+
+.search-btn:active {
+  transform: scale(1.1);
+  background-color: transparent;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.24);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.8px);
+  -webkit-backdrop-filter: blur(11.8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.weather-container input::placeholder {
+  color: #333333a6;
+}
+
+.weather {
+  /* From https://css.glass */
+  background: var(--primary-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.1px);
+  -webkit-backdrop-filter: blur(13.1px);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  border-radius: 15px;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.weather h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.weather .temp {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.weather .humidity,
+.weather .wind,
+.weather .description {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.quote-container {
+  display: flex;
+  align-self: center;
+  width: 75%;
+  height: 300px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.quote .quoter {
+  margin-top: 30px;
+  font-style: italic;
+}
+
+.quote i {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-container {
+    display: none;
+  }
+}
+
+@media (max-height: 1000px) {
+  .weather-container {
+    display: none;
+  }
+  .quote-container {
+    display: none;
+  }
+}
