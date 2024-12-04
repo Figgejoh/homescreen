@@ -109,10 +109,16 @@ inputBox.addEventListener("keypress", function (e) {
 });
 
 // WEATHER APP
-
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const apiKey = "1df4cfce79cb00f20cee663ff16c153b";
-const apiBase = "https://api.openweathermap.org/data/2.5/weather";
-
+const apiBase = `https://api.openweathermap.org/data/2.5/weather`;
+const queryParams = {
+  appid: apiKey,
+  q: "Stenungsund",
+  units: "metric",
+};
+const urlParams = new URLSearchParams(queryParams);
+const apiUrl = `${apiBase}?${urlParams.toString()}`;
 const city = document.querySelector(".city-span");
 const temperature = document.querySelector(".temp");
 const searchBtn = document.querySelector(".search-btn");
@@ -120,4 +126,18 @@ const description = document.querySelector(".description");
 const humidity = document.querySelector(".humidity");
 const wind = document.querySelector(".wind");
 
-city.innerHTML = "Stenungsund";
+city.textContent = "Stenungsund";
+
+fetch(apiUrl)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    populateWeather(data);
+  });
+
+function populateWeather(data) {
+  temperature.textContent = data.main.temp;
+  humidity.textContent = data.main.humidity;
+  wind.textContent = data.wind.speed;
+}

@@ -446,7 +446,7 @@ button:active {
   bottom: 50%;
   left: 50%;
   background-color: #fff;
-  border: 1px solid white;
+  border: 1px solid #00000048;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   transform-origin: bottom;
