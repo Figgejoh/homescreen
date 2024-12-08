@@ -329,6 +329,7 @@ button:active {
   border-radius: 15px;
   max-width: 300px;
   padding: 10px;
+  font-size: 24px;
 }
 
 .weather h2 {

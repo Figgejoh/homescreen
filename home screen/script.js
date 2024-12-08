@@ -120,9 +120,10 @@ const queryParams = {
 const urlParams = new URLSearchParams(queryParams);
 const apiUrl = `${apiBase}?${urlParams.toString()}`;
 const city = document.querySelector(".city-span");
+const cityInput = document.querySelector(".city-input");
 const temperature = document.querySelector(".temp");
 const searchBtn = document.querySelector(".search-btn");
-const description = document.querySelector(".description");
+const forecast = document.querySelector(".forecast");
 const humidity = document.querySelector(".humidity");
 const wind = document.querySelector(".wind");
 
@@ -136,7 +137,44 @@ fetch(apiUrl)
     populateWeather(data);
   });
 
+searchBtn.addEventListener("click", () => {
+  const cityName = cityInput.value;
+  if (cityName) {
+    fetchWeather(cityName);
+  } else {
+    alert("Please enter a city");
+  }
+});
+
+function fetchWeather(cityName) {
+  const apiKey = "1df4cfce79cb00f20cee663ff16c153b";
+  const apiBase = `https://api.openweathermap.org/data/2.5/weather`;
+
+  const queryParams = {
+    appid: apiKey,
+    q: cityName,
+    units: "metric",
+  };
+  const urlParams = new URLSearchParams(queryParams);
+  const apiUrl = `${apiBase}?${urlParams.toString()}`;
+
+  fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("City not found");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      populateWeather(data);
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
+
 function populateWeather(data) {
+  city.textContent = data.name;
   temperature.textContent = data.main.temp;
   humidity.textContent = data.main.humidity;
   wind.textContent = data.wind.speed;
