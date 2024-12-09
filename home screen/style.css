@@ -5,8 +5,8 @@
 }
 
 :root {
-  --primary-color: #3a3c4d;
-  --secondary-color: #d7664a;
+  --primary-color: #f9b748;
+  --secondary-color: #6d292b;
   --third-color: #f3f8f1;
 }
 
@@ -318,7 +318,26 @@ button:active {
 
 .weather {
   /* From https://css.glass */
-  background: var(--primary-color);
+  background: rgb(87, 137, 222);
+  background: -moz-linear-gradient(
+    335deg,
+    rgba(87, 137, 222, 1) 7%,
+    rgba(87, 160, 222, 1) 24%,
+    rgba(75, 197, 236, 1) 58%
+  );
+  background: -webkit-linear-gradient(
+    335deg,
+    rgba(87, 137, 222, 1) 7%,
+    rgba(87, 160, 222, 1) 24%,
+    rgba(75, 197, 236, 1) 58%
+  );
+  background: linear-gradient(
+    335deg,
+    rgba(87, 137, 222, 1) 7%,
+    rgba(87, 160, 222, 1) 24%,
+    rgba(75, 197, 236, 1) 58%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5789de",endColorstr="#4bc5ec",GradientType=1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(13.1px);
@@ -327,7 +346,7 @@ button:active {
   flex-direction: column;
   height: 300px;
   border-radius: 15px;
-  max-width: 300px;
+  width: 300px;
   padding: 10px;
   font-size: 24px;
 }
@@ -368,13 +387,13 @@ button:active {
   padding: 10px;
 }
 
+.quoter {
+  text-align: end;
+}
+
 .quote .quoter {
   margin-top: 30px;
   font-style: italic;
-}
-
-.quote i {
-  font-size: 24px;
   font-weight: bold;
 }
 
@@ -383,7 +402,7 @@ button:active {
   height: 250px;
   background: #fff;
   border-radius: 50%;
-  border: 3px solid var(--primary-color);
+  border: 3px solid #666;
   position: relative;
   margin-top: 30px;
 }
@@ -497,11 +516,17 @@ button:active {
   }
 }
 
-@media (max-height: 1000px) {
+@media (max-height: 500px) {
   .weather-container {
     display: none;
   }
   .quote-container {
+    display: none;
+  }
+}
+
+@media (max-height: 1000px) {
+  .analog-clock {
     display: none;
   }
 }

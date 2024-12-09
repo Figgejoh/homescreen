@@ -141,8 +141,22 @@ searchBtn.addEventListener("click", () => {
   const cityName = cityInput.value;
   if (cityName) {
     fetchWeather(cityName);
+    cityInput.value = "";
   } else {
     alert("Please enter a city");
+  }
+});
+
+cityInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    const cityName = cityInput.value.trim();
+
+    if (cityName) {
+      fetchWeather(cityName);
+      cityInput.value = "";
+    } else {
+      alert("Please enter a city name");
+    }
   }
 });
 
@@ -179,3 +193,20 @@ function populateWeather(data) {
   humidity.textContent = data.main.humidity;
   wind.textContent = data.wind.speed;
 }
+
+// Quote container
+
+const quoteToday = document.querySelector(".today-quote");
+const quoter = document.querySelector(".quoter");
+
+function generateQuote() {
+  fetch("https://api.api-ninjas.com/v1/quotes", {
+    headers: { "X-Api-Key": "+WHTVY9JQAtwrOLrW4ohrQ==JU17aEWUdBzce5Yu" },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      quoteToday.textContent = `"${data[0].quote}"`;
+      quoter.textContent = `- ${data[0].author}`;
+    });
+}
+generateQuote();
